@@ -18,13 +18,13 @@ Feed.ly es una aplicación web que permite a cualquier usuario enviar feedback d
 * Firebase Firestore
 ---
 # USO
-# Usuario
+# Usuario https://anonymous-feedback-af7e8.web.app/
 * Envío de feedback anónimo
 * Validar formulario
   * Campos requeridos
   * Límite de caracteres textarea
   * Contador dinámico (10 min, 500 max)
-# Administrador
+# Para acceder al panel administrador y consultar el feedback: https://anonymous-feedback-af7e8.web.app/login.html
 * Login protegido con Firebase Auth
 * Visualización de feedback ordenado por fecha
 * Eliminar feedback
