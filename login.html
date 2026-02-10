@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Login</title>
+  <link rel="icon" href="https://www.svgrepo.com/show/361153/feedback.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head> <!-- Login para administrador -->
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+  <main class="bg-white w-full max-w-md rounded-xl shadow-md p-6">
+    <h1 class="text-2xl font-semibold text-gray-800 mb-2">Feed.ly</h1>
+    <p class="text-sm text-gray-500 mb-6">Acceso administrador</p>
+
+    <!-- Credenciales demo -->
+    <div class="bg-gray-100 border rounded-lg p-4 mb-4 text-sm text-gray-700">
+      <p class="font-semibold mb-1">Demo admin credentials</p>
+      <p>Email: <span class="font-mono">admin@feedback.com</span></p>
+      <p>Password: <span class="font-mono">@Password6214</span></p>
+    </div>
+
+    <!-- Login form -->
+    <form id="loginForm" class="space-y-4">
+      <div>
+      <input type="email" id="email" placeholder="Email" required class="w-full rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-black"/>
+      </div>
+
+      <div>
+      <input type="password" id="password" placeholder="Contraseña" class="w-full rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-black" required/>
+      </div>
+
+      <button type="submit" class="w-full bg-black text-white py-2 rounded-lg font-medium hover:bg-gray-800 transition">
+      Ingresar
+      </button>
+
+      <p id="error" class="text-red-500 text-sm hidden"></p> <!-- Mensaje de error -->
+    </form>
+
+  </main>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAWI2kQnNXO2-p94e4F25TnVVEQYxSOFNw",
+      authDomain: "anonymous-feedback-af7e8.firebaseapp.com",
+      projectId: "anonymous-feedback-af7e8",
+      appId: "1:165612310425:web:f7f142aeb1d71b3aa58d08"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    window.auth = getAuth(app);
+  </script>
+
+  <script type="module" src="login.js"></script>
+</body>
+</html>

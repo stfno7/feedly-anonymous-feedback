@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Send your feedback</title>
+  <link rel="icon" href="https://www.svgrepo.com/show/361153/feedback.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head> <!-- Feedback público -->
+<body class="bg-gray-100 min-h-screen flex items-center justify-center"> <!-- Body -->
+  <main class="bg-white w-full max-w-md rounded-xl shadow-md p-6">
+    <h1 class="text-2xl font-semibold text-gray-800 mb-2">Feed.ly</h1>
+    <p class="text-sm text-gray-500 mb-4"> Dejanos tu feedback. Es completamente anonimo</p>
+    <!-- Formulario -->
+    <form id="feedbackForm" class="space-y-4">     
+      <div>
+        <textarea id="feedback" rows="5" placeholder="Deje su feedback acá!" 
+        class="w-full resize-none rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-black" maxlength="500" required></textarea>
+        <div class="flex justify-between mt-1 text-xs">
+          <span id="error" class="text-red-500 hidden">El mensaje debe tener al menos 10 caracteres.</span> <!-- Validación -->
+          <span id="counter" class="text-gray-400">0 / 500</span> <!-- Counter caracteres -->
+        </div>
+      </div>
+
+      <button type="submit" id="submitBtn" disabled
+      class="w-full bg-black text-white py-2 rounded-lg font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-800 transition">
+      Enviar
+      </button>
+
+      <p id="success" class="text-green-600 text-sm hidden">¡Gracias por tu feedback!. Lo tendremos en cuenta</p> <!-- Formulario envíado success -->
+    </form>
+  </main>
+
+
+    <!-- Firebase -->
+    <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+    apiKey: "AIzaSyAWI2kQnNXO2-p94e4F25TnVVEQYxSOFNw",
+    authDomain: "anonymous-feedback-af7e8.firebaseapp.com",
+    projectId: "anonymous-feedback-af7e8",
+    storageBucket: "anonymous-feedback-af7e8.firebasestorage.app",
+    messagingSenderId: "165612310425",
+    appId: "1:165612310425:web:f7f142aeb1d71b3aa58d08"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    window.db = getFirestore(app);
+    </script>
+    <!-- Firebase -->
+
+    <script type="module" src="script.js"></script> <!-- script.js -->
+
+</body> <!-- Body -->
+</html>

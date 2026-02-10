@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Administrar feedback</title>
+  <link rel="icon" href="https://www.svgrepo.com/show/361153/feedback.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head> <!-- Panel admin -->
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+  <main class="bg-white w-full max-w-md rounded-xl shadow-md p-6">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-4">
+      <h1 class="text-xl font-semibold text-gray-800">Feed.ly</h1>
+      <button id="logoutBtn" class="text-sm text-red-500 hover:underline">
+      Cerrar sesión
+      </button>
+    </div>
+
+    <p class="text-sm text-gray-500 mb-6">Feedback recibido</p>
+
+    <!-- Lista con el feedback -->
+    <div id="feedback-list" class="space-y-4">
+      <!-- Lista con el feedback -->
+    </div>
+
+    <p id="empty" class="text-gray-500 text-sm hidden">No hay feedback todavía.</p>
+  </main>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"; // Proteger admin.html (Verificar sesión)
+
+    // Configuración firebase
+    const firebaseConfig = {
+    apiKey: "AIzaSyAWI2kQnNXO2-p94e4F25TnVVEQYxSOFNw",
+    authDomain: "anonymous-feedback-af7e8.firebaseapp.com",
+    projectId: "anonymous-feedback-af7e8",
+    storageBucket: "anonymous-feedback-af7e8.firebasestorage.app",
+    messagingSenderId: "165612310425",
+    appId: "1:165612310425:web:f7f142aeb1d71b3aa58d08"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    window.db = db;
+
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        window.location.href = "login.html";
+    }
+    });
+    // Proteger admin.html (Verificar sesión)
+  </script>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
