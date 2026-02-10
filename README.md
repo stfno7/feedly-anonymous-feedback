@@ -4,7 +4,7 @@ Feed.ly es una aplicación web que permite a cualquier usuario enviar feedback d
 # ¿Cómo funciona?
 **Feedback público:** El user puede enviar mensajes en el textarea de index.html, sin autenticarse.
 **Panel administrador:** Acceso protegido mediante login.
-**Credenciales de demo incluidas en login.html**
+**Credenciales de demo incluidas en la ruta /login.html**
 ---
 # Tecnologías
 -- Frontend
