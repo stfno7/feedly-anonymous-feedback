@@ -11,7 +11,9 @@ Feed.ly es una aplicación web que permite a cualquier usuario enviar feedback d
 * HTML5
 * Tailwind CSS
 * JavaScript (ES Modules)
+
 -- Backend & Database
+
 * Firebase Authentication
 * Firebase Firestore
 ---
